@@ -25,6 +25,10 @@ namespace Photosynthesis
         protected override void Initialize()
         {
             base.Initialize();
+
+            this.graphics.PreferredBackBufferHeight = 600;
+            this.graphics.PreferredBackBufferWidth = 600;
+            this.graphics.ApplyChanges();
         }
 
         protected override void LoadContent()

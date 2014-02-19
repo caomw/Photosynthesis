@@ -7,6 +7,9 @@ namespace Photosynthesis.Core
 {
     public class SystemHandler
     {
+        public List<String> CurrentText;
+        public int TextIndex;
+
         public enum Stage
         {
             PhotosystemTwo,
@@ -15,5 +18,11 @@ namespace Photosynthesis.Core
             Plastocyanin,
             PhotosystemOne
         };
+
+        public void DrawText(List<String> text)
+        {
+            this.CurrentText = text;
+            this.TextIndex = 0;
+        }
     }
 }

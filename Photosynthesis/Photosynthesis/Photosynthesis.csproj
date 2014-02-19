@@ -107,9 +107,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\MovingSprite.cs" />
+    <Compile Include="Core\Sprite.cs" />
+    <Compile Include="Core\SystemHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="Photosynthesis.cs" />
+    <Compile Include="Systems\PhotosystemTwo.cs" />
+    <Compile Include="Systems\System.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Game.ico" />
