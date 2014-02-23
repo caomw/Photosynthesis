@@ -6,6 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
+using Photosynthesis.Systems;
 
 namespace Photosynthesis.Core
 {
@@ -20,13 +21,12 @@ namespace Photosynthesis.Core
         public SpriteBatch Batch;
         public ContentManager Content;
 
+        public PhotosystemWing One;
+
         public enum Stage
         {
-            PhotosystemTwo,
-            Plastoquinone,
-            Cytochrome,
-            Plastocyanin,
-            PhotosystemOne
+            Photon,
+            ToTransport
         };
 
         public SystemHandler(SpriteBatch batch, ContentManager content)
@@ -39,12 +39,15 @@ namespace Photosynthesis.Core
             this.TextIndex = 0;
             this.TextLocation = new Vector2(20, 550);
             this.ButtonLag = 0;
+
+            this.One = new PhotosystemWing(this);
         }
 
         public void Draw()
         {
             this.Batch.Begin();
 
+            this.One.Draw();
             this.DrawStringOnScreen(this.TextLocation);
 
             this.Batch.End();
@@ -52,6 +55,8 @@ namespace Photosynthesis.Core
 
         public void Update(MouseState mState, KeyboardState kState)
         {
+            this.One.Update();
+
             this.UpdateText(mState, kState);
         }
 
