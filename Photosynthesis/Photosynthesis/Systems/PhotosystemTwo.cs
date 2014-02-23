@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Photosynthesis.Systems
 {
-    public class PhotosystemTwo : System
+    public class PhotosystemTwo// : System
     {
 
     }

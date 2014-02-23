@@ -8,6 +8,7 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using Photosynthesis.Core;
 
 namespace Photosynthesis
 {
@@ -15,6 +16,7 @@ namespace Photosynthesis
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
+        SystemHandler handler;
 
         public Photosynthesis()
         {
@@ -29,6 +31,8 @@ namespace Photosynthesis
             this.graphics.PreferredBackBufferHeight = 600;
             this.graphics.PreferredBackBufferWidth = 600;
             this.graphics.ApplyChanges();
+
+            this.handler = new SystemHandler(this.spriteBatch, this.Content);
         }
 
         protected override void LoadContent()
@@ -43,11 +47,16 @@ namespace Photosynthesis
 
         protected override void Update(GameTime gameTime)
         {
+            this.handler.Update(Mouse.GetState(), Keyboard.GetState());
+
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
+
+            this.handler.Draw();
+
             base.Draw(gameTime);
         }
     }
