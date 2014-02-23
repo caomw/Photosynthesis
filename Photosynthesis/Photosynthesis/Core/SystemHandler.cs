@@ -20,19 +20,21 @@ namespace Photosynthesis.Core
 
         public SpriteBatch Batch;
         public ContentManager Content;
+        public Random RNG;
 
         public PhotosystemWing One;
 
         public enum Stage
         {
             Photon,
-            ToTransport
+            ToPlastoquinone
         };
 
         public SystemHandler(SpriteBatch batch, ContentManager content)
         {
             this.Batch = batch;
             this.Content = content;
+            this.RNG = new Random();
 
             this.TextFont = Content.Load<SpriteFont>("Font/TextFont");
             this.TextList = null;
@@ -55,7 +57,7 @@ namespace Photosynthesis.Core
 
         public void Update(MouseState mState, KeyboardState kState)
         {
-            this.One.Update();
+            this.One.Update(mState, kState);
 
             this.UpdateText(mState, kState);
         }

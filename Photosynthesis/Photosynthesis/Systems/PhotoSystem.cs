@@ -8,18 +8,15 @@ using Microsoft.Xna.Framework;
 
 namespace Photosynthesis.Systems
 {
-    public class System
+    public class PhotoSystem
     {
         public Texture2D Background;
         public SystemHandler Handler;
-        public Sprite Player;
-        public Vector2 Focus;
 
-        public System(Texture2D background, SystemHandler handler, Vector2 focus)
+        public PhotoSystem(Texture2D background, SystemHandler handler)
         {
             this.Background = background;
             this.Handler = handler;
-            this.Focus = focus;
         }
 
         public void Update()
@@ -29,7 +26,7 @@ namespace Photosynthesis.Systems
 
         public void Draw()
         {
-            this.Handler.Batch.Draw(this.Background, new Rectangle(0, 0, 600, 600), new Rectangle((int)this.Focus.X - 300, (int)this.Focus.Y - 300, 600, 600), Color.White);
+            this.Handler.Batch.Draw(this.Background, new Vector2(0, 0), Color.White);
         }
     }
 }

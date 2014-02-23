@@ -12,14 +12,14 @@ namespace Photosynthesis.Core
         public float MaxMovementSpeed;
         public Vector2 MovementSpeed = new Vector2(0, 0);
 
-        public MovingSprite(Texture2D texture, Vector2 location, float rotation, float scale, float maxMovementSpeed)
-            : base(texture, location, rotation, scale)
+        public MovingSprite(Texture2D texture, Vector2 location, float rotation, float scale, float maxMovementSpeed, SystemHandler handler)
+            : base(texture, location, rotation, scale, handler)
         {
             this.MaxMovementSpeed = maxMovementSpeed;
         }
 
-        public MovingSprite(Texture2D texture, Vector2 location, float rotation, float scale, float maxMovementSpeed, Vector2 movementSpeed)
-            : base(texture, location, rotation, scale)
+        public MovingSprite(Texture2D texture, Vector2 location, float rotation, float scale, float maxMovementSpeed, SystemHandler handler, Vector2 movementSpeed)
+            : base(texture, location, rotation, scale, handler)
         {
             this.MaxMovementSpeed = maxMovementSpeed;
             this.MovementSpeed = movementSpeed;

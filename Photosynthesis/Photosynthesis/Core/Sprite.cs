@@ -14,19 +14,21 @@ namespace Photosynthesis.Core
         public float Rotation;
         public Vector2 Origin;
         public float Scale;
+        public SystemHandler Handler;
 
-        public Sprite(Texture2D texture, Vector2 location, float rotation, float scale)
+        public Sprite(Texture2D texture, Vector2 location, float rotation, float scale, SystemHandler handler)
         {
             this.Texture = texture;
             this.Location = location;
             this.Rotation = rotation;
             this.Origin = new Vector2(this.Texture.Width / 2, this.Texture.Height / 2);
             this.Scale = scale;
+            this.Handler = handler;
         }
 
-        public void Draw(SpriteBatch batch, Vector2 focus)
+        public void Draw(SpriteBatch batch)
         {
-            batch.Draw(this.Texture, this.GetScreenPosition(this.Location, focus), null, Color.White, this.Rotation, this.Origin, this.Scale, SpriteEffects.None, 0f);
+            batch.Draw(this.Texture, this.Location, null, Color.White, this.Rotation, this.Origin, this.Scale, SpriteEffects.None, 0f);
         }
 
         public bool DoesCollide(Sprite sp1, Sprite sp2)
@@ -40,11 +42,6 @@ namespace Photosynthesis.Core
             }
 
             return false;
-        }
-
-        public Vector2 GetScreenPosition(Vector2 l1, Vector2 focus)
-        {
-            return new Vector2(-(focus.X - l1.X) + 400, -(focus.Y - l1.Y) + 400);
         }
     }
 }

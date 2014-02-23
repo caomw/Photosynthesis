@@ -33,6 +33,7 @@ namespace Photosynthesis
             this.graphics.ApplyChanges();
 
             this.handler = new SystemHandler(this.spriteBatch, this.Content);
+            this.IsMouseVisible = true;
         }
 
         protected override void LoadContent()

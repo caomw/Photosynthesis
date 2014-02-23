@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Photosynthesis.Core
+namespace Photosynthesis.Core.Generators
 {
-    public class PhotonGenerator
+    public class WallGenerator : Generator
     {
+
     }
 }
