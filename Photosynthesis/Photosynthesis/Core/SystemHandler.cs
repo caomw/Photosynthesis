@@ -39,17 +39,6 @@ namespace Photosynthesis.Core
             this.TextIndex = 0;
             this.TextLocation = new Vector2(20, 550);
             this.ButtonLag = 0;
-            
-            List<String> testText = new List<string>();
-            testText.Add("Hello");
-            testText.Add("Test");
-            testText.Add("Bye");
-            this.DrawText(testText);
-            List<String> testText1 = new List<string>();
-            testText1.Add("Round 2");
-            testText1.Add("Lalala");
-            testText1.Add("End");
-            this.DrawText(testText1);
         }
 
         public void Draw()
