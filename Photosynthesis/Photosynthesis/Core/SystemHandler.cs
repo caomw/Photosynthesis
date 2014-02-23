@@ -45,6 +45,11 @@ namespace Photosynthesis.Core
             testText.Add("Test");
             testText.Add("Bye");
             this.DrawText(testText);
+            List<String> testText1 = new List<string>();
+            testText1.Add("Round 2");
+            testText1.Add("Lalala");
+            testText1.Add("End");
+            this.DrawText(testText1);
         }
 
         public void Draw()
@@ -85,6 +90,7 @@ namespace Photosynthesis.Core
                     {
                         this.TextIndex++;
                         this.ButtonLag = 20;
+
                         if (this.TextIndex >= this.TextList[0].Count)
                         {
                             this.TextList.RemoveAt(0);
