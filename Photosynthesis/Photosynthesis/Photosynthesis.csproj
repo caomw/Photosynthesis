@@ -108,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Generators\PhotonGenerator.cs" />
+    <Compile Include="Core\Generators\WallGenerator.cs" />
     <Compile Include="Core\MovingSprite.cs" />
     <Compile Include="Core\Generators\Generator.cs" />
     <Compile Include="Core\Sprite.cs" />
@@ -117,6 +118,7 @@
     <Compile Include="Photosynthesis.cs" />
     <Compile Include="Sprites\Electron.cs" />
     <Compile Include="Sprites\Photon.cs" />
+    <Compile Include="Systems\PhotosystemETC.cs" />
     <Compile Include="Systems\PhotosystemWing.cs" />
     <Compile Include="Systems\PhotoSystem.cs" />
   </ItemGroup>

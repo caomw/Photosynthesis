@@ -75,8 +75,6 @@ namespace Photosynthesis.Core.Generators
                     else
                     {
                         text.Add("Hey man, take some of my energy!");
-                        text.Add("STAGE 2: TRAVEL TO THE");
-                        text.Add("PLASTOQUINONE");
                         this.ThisSystem.Player.IsEnergized = true;
                     }
 

@@ -21,8 +21,10 @@ namespace Photosynthesis.Core
         public SpriteBatch Batch;
         public ContentManager Content;
         public Random RNG;
+        public Stage CurrentStage;
 
         public PhotosystemWing One;
+        public PhotosystemETC Two;
 
         public enum Stage
         {
@@ -35,6 +37,7 @@ namespace Photosynthesis.Core
             this.Batch = batch;
             this.Content = content;
             this.RNG = new Random();
+            this.CurrentStage = Stage.Photon;
 
             this.TextFont = Content.Load<SpriteFont>("Font/TextFont");
             this.TextList = null;
@@ -43,13 +46,24 @@ namespace Photosynthesis.Core
             this.ButtonLag = 0;
 
             this.One = new PhotosystemWing(this);
+            this.Two = new PhotosystemETC(this);
         }
 
         public void Draw()
         {
             this.Batch.Begin();
 
-            this.One.Draw();
+            switch (this.CurrentStage)
+            {
+                case Stage.Photon:
+                    this.One.Draw();
+                    break;
+
+                case Stage.ToPlastoquinone:
+                    this.Two.Draw();
+                    break;
+            }
+
             this.DrawStringOnScreen(this.TextLocation);
 
             this.Batch.End();
@@ -57,7 +71,16 @@ namespace Photosynthesis.Core
 
         public void Update(MouseState mState, KeyboardState kState)
         {
-            this.One.Update(mState, kState);
+            switch (this.CurrentStage)
+            {
+                case Stage.Photon:
+                    this.One.Update(mState, kState);
+                    break;
+
+                case Stage.ToPlastoquinone:
+                    this.Two.Update(mState, kState);
+                    break;
+            }
 
             this.UpdateText(mState, kState);
         }

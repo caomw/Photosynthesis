@@ -17,7 +17,6 @@ namespace Photosynthesis.Systems
         {
             Text,
             Photon,
-            Escape,
             End
         }
 
@@ -31,7 +30,7 @@ namespace Photosynthesis.Systems
         {
             this.Stage = Stages.Text;
             this.Player = new Electron(this.Handler.Content.Load<Texture2D>("Textures/Electron"), this.Handler, new Vector2(300, 500));
-            this.PhGen = new PhotonGenerator(this, 6);
+            this.PhGen = new PhotonGenerator(this, 12);
             this.HasStart = false;
         }
 
@@ -95,6 +94,10 @@ namespace Photosynthesis.Systems
                         this.Stage++;
                     }
 
+                    break;
+
+                case Stages.End:
+                    this.Handler.CurrentStage++;
                     break;
             }
 
